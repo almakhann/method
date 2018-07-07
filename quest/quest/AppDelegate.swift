@@ -8,15 +8,21 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
+import GooglePlaces
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+   
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        GMSPlacesClient.provideAPIKey("AIzaSyDjkWFzuIIqhGuHKfJtnEPL6A8_dmdMt7M")
+        GMSServices.provideAPIKey("AIzaSyDjkWFzuIIqhGuHKfJtnEPL6A8_dmdMt7M")
         
         window = UIWindow()
         

@@ -1,9 +1,9 @@
 //
-//  BaseViewController.swift
-//  AKSwiftSlideMenu
+//  UserModel.swift
+//  quest
 //
-//  Created by Ashish on 21/09/15.
-//  Copyright (c) 2015 Kode. All rights reserved.
+//  Created by Serik on 07.07.2018.
+//  Copyright © 2018 Serik. All rights reserved.
 //
 
 import UIKit
@@ -25,15 +25,21 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         print("View Controller is : \(topViewController) \n", terminator: "")
         switch(index){
         case 0:
-            print("Home\n", terminator: "")
+            print("main\n", terminator: "")
 
             self.openViewControllerBasedOnIdentifier("Home")
             
             break
         case 1:
-            print("Play\n", terminator: "")
+            print("My Quest\n", terminator: "")
             
             self.openViewControllerBasedOnIdentifier("PlayVC")
+            
+            break
+        case 2:
+            print("Create Quest\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("CreateVC")
             
             break
         default:

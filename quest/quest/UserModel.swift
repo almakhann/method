@@ -18,6 +18,6 @@ class UserModel {
     var number = String()
     var id = Int16()
 
-    var checkUserLoggedIn = false
+    var checkUserLoggedIn = true
 }
 

@@ -7,7 +7,25 @@
 		<key>quest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>725892A020F0C7AD00E71961</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>725892B720F0C7AD00E71961</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>725892C220F0C7AE00E71961</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

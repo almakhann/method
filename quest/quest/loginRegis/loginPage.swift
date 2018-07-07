@@ -56,8 +56,8 @@ class loginPage: UIViewController,UITextFieldDelegate{
         
         if textField == numberTextField{
             guard let text = textField.text else { return true }
-            let newLength = text.characters.count + string.characters.count - range.length
-            if text.characters.first == "8"{
+            let newLength = text.count + string.count - range.length
+            if text.first == "8"{
                 return newLength <= 11
             }
             else{
@@ -72,9 +72,9 @@ class loginPage: UIViewController,UITextFieldDelegate{
     func NumberCheck() -> Int{
         number = numberTextField.text!
         if(number != ""){
-            if(number.characters.count == 12){
+            if(number.count == 12){
                 numberTextField.isUserInteractionEnabled = true
-                if(String(number.characters.prefix(3)) == "+77"){
+                if(String(number.prefix(3)) == "+77"){
                     return 1
                 }
                 else{
@@ -82,8 +82,8 @@ class loginPage: UIViewController,UITextFieldDelegate{
                     return 0
                 }
             }
-            else if(number.characters.count == 11){
-                if(String(number.characters.prefix(2)) == "87"){
+            else if(number.count == 11){
+                if(String(number.prefix(2)) == "87"){
                     return 1
                 }
                 else{
@@ -91,7 +91,7 @@ class loginPage: UIViewController,UITextFieldDelegate{
                     return 0
                 }
             }
-            if(number.characters.count > 12){
+            if(number.count > 12){
                 numberTextField.isUserInteractionEnabled = false
                 return 0
             }

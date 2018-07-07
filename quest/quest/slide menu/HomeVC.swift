@@ -1,35 +1,99 @@
+///
+//  UserModel.swift
+//  quest
 //
-//  HomeVC.swift
-//  AKSwiftSlideMenu
-//
-//  Created by MAC-186 on 4/8/16.
-//  Copyright © 2016 Kode. All rights reserved.
+//  Created by Serik on 07.07.2018.
+//  Copyright © 2018 Serik. All rights reserved.
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
+import CoreLocation
 
-class HomeVC: BaseViewController {
-
+class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, UITextFieldDelegate {
+    @IBOutlet var mapView: GMSMapView!
+    
+    var locationManager = CLLocationManager()
+    
+    var location_x: CLLocationDegrees = 0.0
+    var location_y: CLLocationDegrees = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSlideMenuButton()
-        // Do any additional setup after loading the view.
+        
+        locationManager.requestAlwaysAuthorization()
+        //Your map initiation code
+        self.mapView.delegate = self
+        self.mapView?.isMyLocationEnabled = true
+        self.mapView.settings.myLocationButton = true
+        self.mapView.settings.compassButton = true
+        self.mapView.settings.zoomGestures = true
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startMonitoringSignificantLocationChanges()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func createMarker(titleMarker: String,  latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Float) {
+        mapView.clear()
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
+        
+        self.mapView.camera = camera
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(latitude, longitude)
+        marker.title = titleMarker
+        marker.map = mapView
+        location_x = latitude
+        location_y = longitude
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    var locationX: CLLocationDegrees = 0.0
+    var locationY: CLLocationDegrees = 0.0
+    //MARK: - Location Manager delegates
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error to get location : \(error)")
     }
-    */
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        createMarker(titleMarker: "you position", latitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 16)
+        
+        locationX = (self.locationManager.location?.coordinate.latitude)!
+        locationY = (self.locationManager.location?.coordinate.longitude)!
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    
+    // MARK: - GMSMapViewDelegate
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        mapView.isMyLocationEnabled = true
+    }
+    
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+        mapView.isMyLocationEnabled = true
+        
+        if (gesture) {
+            mapView.selectedMarker = nil
+        }
+    }
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        mapView.isMyLocationEnabled = true
+        return false
+    }
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        print("COORDINATE \(coordinate)") // when you tapped coordinate
+        createMarker(titleMarker: "Выбранное место", latitude: coordinate.latitude, longitude: coordinate.longitude , zoom: 16.0)
+    }
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        mapView.isMyLocationEnabled = true
+        mapView.selectedMarker = nil
+        return false
+    }
+
 
 }
