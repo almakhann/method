@@ -27,6 +27,7 @@
 		725892FC20F0E78B00E71961 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892FB20F0E78B00E71961 /* UserModel.swift */; };
 		7258930020F12C2000E71961 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892FF20F12C1F00E71961 /* MainPage.swift */; };
 		72E2973820F1457E00C167FE /* CreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973720F1457E00C167FE /* CreateVC.swift */; };
+		72E2973A20F165B300C167FE /* shareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973920F165B300C167FE /* shareVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		725892FB20F0E78B00E71961 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		725892FF20F12C1F00E71961 /* MainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPage.swift; path = ../../../../../Documents/Swift/SmartWear/SmartWear/MainPage.swift; sourceTree = "<group>"; };
 		72E2973720F1457E00C167FE /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVC.swift; sourceTree = "<group>"; };
+		72E2973920F165B300C167FE /* shareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shareVC.swift; sourceTree = "<group>"; };
 		9C5C22D2B4143EC2A6C67C42 /* Pods-quest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quest/Pods-quest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 				725892F620F0E4A400E71961 /* MenuViewController.swift */,
 				725892F320F0E4A400E71961 /* PlayVC.swift */,
 				72E2973720F1457E00C167FE /* CreateVC.swift */,
+				72E2973920F165B300C167FE /* shareVC.swift */,
 			);
 			path = "slide menu";
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E2973A20F165B300C167FE /* shareVC.swift in Sources */,
 				725892A720F0C7AD00E71961 /* ViewController.swift in Sources */,
 				725892FA20F0E4A400E71961 /* MenuViewController.swift in Sources */,
 				725892F820F0E4A400E71961 /* HomeVC.swift in Sources */,

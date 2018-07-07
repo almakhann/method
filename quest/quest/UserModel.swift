@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import GoogleMaps
+import GooglePlaces
+import CoreLocation
+
 
 class UserModel {
     static let sharedInstance = UserModel()
     
-    var type = Int()
-    var name = String()
-    var surname = String()
-    var pass = String()
-    var number = String()
-    var id = Int16()
 
     var checkUserLoggedIn = true
+    
+    var latitud:  CLLocationDegrees = 0.0
+    var longitut:  CLLocationDegrees = 0.0
 }
 

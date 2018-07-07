@@ -13,18 +13,22 @@ import CoreLocation
 
 class CreateVC: BaseViewController ,CLLocationManagerDelegate, GMSMapViewDelegate {
 
-    @IBOutlet var codeLabel: UILabel!
-  
+    @IBOutlet var createBtn: UIButton!
     @IBOutlet var mapView: GMSMapView!
     
+
     var locationManager = CLLocationManager()
-    
     var location_x: CLLocationDegrees = 0.0
     var location_y: CLLocationDegrees = 0.0
+    
+
    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSlideMenuButton()
+        
+
+
         
         locationManager.requestAlwaysAuthorization()
         //Your map initiation code
@@ -43,10 +47,19 @@ class CreateVC: BaseViewController ,CLLocationManagerDelegate, GMSMapViewDelegat
     }
     
     
+    
+    @IBAction func pressBtn(_ sender: UIButton) {
+        let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = loginStoryboard.instantiateViewController(withIdentifier: "shareVC") as UIViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    
+    
     func createMarker(titleMarker: String,  latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Float) {
         mapView.clear()
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
-        
+        mapView.animate(toViewingAngle: 45)
         self.mapView.camera = camera
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(latitude, longitude)
@@ -92,7 +105,10 @@ class CreateVC: BaseViewController ,CLLocationManagerDelegate, GMSMapViewDelegat
     }
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         print("COORDINATE \(coordinate)") // when you tapped coordinate
-        createMarker(titleMarker: "Выбранное место", latitude: coordinate.latitude, longitude: coordinate.longitude , zoom: 16.0)
+        createMarker(titleMarker: "Выбранное место", latitude: coordinate.latitude, longitude: coordinate.longitude , zoom: 15)
+        
+        UserModel.sharedInstance.latitud = coordinate.latitude
+        UserModel.sharedInstance.longitut = coordinate.longitude
     }
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
         mapView.isMyLocationEnabled = true
