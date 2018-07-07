@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  quest
+//  SmartWear
 //
-//  Created by Serik on 07.07.2018.
-//  Copyright © 2018 Serik. All rights reserved.
+//  Created by Serik on 24.10.17.
+//  Copyright © 2017 Serik. All rights reserved.
 //
 
 import UIKit
@@ -13,26 +13,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        
-        window = UIWindow()
-        
-        if(UserModel.sharedInstance.checkUserLoggedIn == true){
-            let storyboard = UIStoryboard(name:"Main", bundle: nil)
-            let menu = storyboard.instantiateViewController(withIdentifier: "slideMenu")
-            self.window?.rootViewController = menu
-        }
-        else{
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let registration = storyboard.instantiateViewController(withIdentifier: "logreg")
-            self.window?.rootViewController = registration
-        }
-
-
-        
+        // Override point for customization after application launch.
         return true
     }
 
@@ -69,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "quest")
+        let container = NSPersistentContainer(name: "SmartWear")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

@@ -15,6 +15,16 @@
 		725892B220F0C7AD00E71961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725892B020F0C7AD00E71961 /* LaunchScreen.storyboard */; };
 		725892BD20F0C7AD00E71961 /* questTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892BC20F0C7AD00E71961 /* questTests.swift */; };
 		725892C820F0C7AE00E71961 /* questUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892C720F0C7AE00E71961 /* questUITests.swift */; };
+		725892DF20F0D1BE00E71961 /* regsterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892D820F0D1BD00E71961 /* regsterPage.swift */; };
+		725892E020F0D1BE00E71961 /* loginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892D920F0D1BD00E71961 /* loginPage.swift */; };
+		725892E820F0D33F00E71961 /* ErrorAlertShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892E520F0D33D00E71961 /* ErrorAlertShow.swift */; };
+		725892EA20F0D33F00E71961 /* ErrorAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725892E720F0D33E00E71961 /* ErrorAlert.storyboard */; };
+		725892F720F0E4A400E71961 /* PlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892F320F0E4A400E71961 /* PlayVC.swift */; };
+		725892F820F0E4A400E71961 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892F420F0E4A400E71961 /* HomeVC.swift */; };
+		725892F920F0E4A400E71961 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892F520F0E4A400E71961 /* BaseViewController.swift */; };
+		725892FA20F0E4A400E71961 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892F620F0E4A400E71961 /* MenuViewController.swift */; };
+		725892FC20F0E78B00E71961 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892FB20F0E78B00E71961 /* UserModel.swift */; };
+		725892FE20F0EA5400E71961 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892FD20F0EA5400E71961 /* MainPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,16 @@
 		725892C320F0C7AE00E71961 /* questUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = questUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		725892C720F0C7AE00E71961 /* questUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questUITests.swift; sourceTree = "<group>"; };
 		725892C920F0C7AE00E71961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		725892D820F0D1BD00E71961 /* regsterPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = regsterPage.swift; sourceTree = "<group>"; };
+		725892D920F0D1BD00E71961 /* loginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginPage.swift; sourceTree = "<group>"; };
+		725892E520F0D33D00E71961 /* ErrorAlertShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertShow.swift; sourceTree = "<group>"; };
+		725892E720F0D33E00E71961 /* ErrorAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ErrorAlert.storyboard; sourceTree = "<group>"; };
+		725892F320F0E4A400E71961 /* PlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVC.swift; sourceTree = "<group>"; };
+		725892F420F0E4A400E71961 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		725892F520F0E4A400E71961 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		725892F620F0E4A400E71961 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		725892FB20F0E78B00E71961 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		725892FD20F0EA5400E71961 /* MainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPage.swift; path = ../../../../../Swift/SmartWear/SmartWear/MainPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +119,10 @@
 		725892A320F0C7AD00E71961 /* quest */ = {
 			isa = PBXGroup;
 			children = (
+				725892F120F0D3CE00E71961 /* error */,
+				725892F220F0E49000E71961 /* slide menu */,
+				725892D620F0D19300E71961 /* loginRegis */,
+				725892FB20F0E78B00E71961 /* UserModel.swift */,
 				725892A420F0C7AD00E71961 /* AppDelegate.swift */,
 				725892A620F0C7AD00E71961 /* ViewController.swift */,
 				725892A820F0C7AD00E71961 /* Main.storyboard */,
@@ -126,6 +150,36 @@
 				725892C920F0C7AE00E71961 /* Info.plist */,
 			);
 			path = questUITests;
+			sourceTree = "<group>";
+		};
+		725892D620F0D19300E71961 /* loginRegis */ = {
+			isa = PBXGroup;
+			children = (
+				725892FD20F0EA5400E71961 /* MainPage.swift */,
+				725892D920F0D1BD00E71961 /* loginPage.swift */,
+				725892D820F0D1BD00E71961 /* regsterPage.swift */,
+			);
+			path = loginRegis;
+			sourceTree = "<group>";
+		};
+		725892F120F0D3CE00E71961 /* error */ = {
+			isa = PBXGroup;
+			children = (
+				725892E720F0D33E00E71961 /* ErrorAlert.storyboard */,
+				725892E520F0D33D00E71961 /* ErrorAlertShow.swift */,
+			);
+			path = error;
+			sourceTree = "<group>";
+		};
+		725892F220F0E49000E71961 /* slide menu */ = {
+			isa = PBXGroup;
+			children = (
+				725892F520F0E4A400E71961 /* BaseViewController.swift */,
+				725892F420F0E4A400E71961 /* HomeVC.swift */,
+				725892F620F0E4A400E71961 /* MenuViewController.swift */,
+				725892F320F0E4A400E71961 /* PlayVC.swift */,
+			);
+			path = "slide menu";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				725892B220F0C7AD00E71961 /* LaunchScreen.storyboard in Resources */,
+				725892EA20F0D33F00E71961 /* ErrorAlert.storyboard in Resources */,
 				725892AF20F0C7AD00E71961 /* Assets.xcassets in Resources */,
 				725892AA20F0C7AD00E71961 /* Main.storyboard in Resources */,
 			);
@@ -263,8 +318,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				725892A720F0C7AD00E71961 /* ViewController.swift in Sources */,
+				725892FA20F0E4A400E71961 /* MenuViewController.swift in Sources */,
+				725892F820F0E4A400E71961 /* HomeVC.swift in Sources */,
 				725892AD20F0C7AD00E71961 /* quest.xcdatamodeld in Sources */,
+				725892E820F0D33F00E71961 /* ErrorAlertShow.swift in Sources */,
+				725892E020F0D1BE00E71961 /* loginPage.swift in Sources */,
+				725892F920F0E4A400E71961 /* BaseViewController.swift in Sources */,
+				725892F720F0E4A400E71961 /* PlayVC.swift in Sources */,
 				725892A520F0C7AD00E71961 /* AppDelegate.swift in Sources */,
+				725892DF20F0D1BE00E71961 /* regsterPage.swift in Sources */,
+				725892FC20F0E78B00E71961 /* UserModel.swift in Sources */,
+				725892FE20F0EA5400E71961 /* MainPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
