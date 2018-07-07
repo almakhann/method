@@ -3,7 +3,7 @@
 //
 //
 //  Created by Serik on 07.06.2018.
-//  Copyright © 2017 Serik. All rights reserved.
+//  Copyright © 2018 Serik. All rights reserved.
 //
 
 import UIKit
@@ -12,8 +12,8 @@ import CoreData
 class loginPage: UIViewController,UITextFieldDelegate{
 
     @IBOutlet var numberTextField: UITextField!
-    
     @IBOutlet var passTextField: UITextField!
+    
     var number = ""
     var id = Int16()
     override func viewDidLoad() {
@@ -24,25 +24,22 @@ class loginPage: UIViewController,UITextFieldDelegate{
     
     @IBAction func okBtn(_ sender: UIButton) {
         if NumberCheck() == 1 && passTextField.text != ""{
-            print("Error")
 //            UserModel.sharedInstance.type = 1
 
 //            let result = CheckLogin(number: numberTextField.text!, password: passTextField.text!)
             let result = 0
             if result == 1{
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = storyboard.instantiateViewController(withIdentifier: "tabbar")
+                let storyboard = UIStoryboard(name:"Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "slide")
                 self.present(controller, animated: true, completion: nil)
             }
             else{
                 showErrorAlert(errorMessage: "Неправильно")
             }
-
         }
         else{
             showErrorAlert(errorMessage: "Заполните поле")
         }
-        
     }
 
 
@@ -56,8 +53,8 @@ class loginPage: UIViewController,UITextFieldDelegate{
         
         if textField == numberTextField{
             guard let text = textField.text else { return true }
-            let newLength = text.characters.count + string.characters.count - range.length
-            if text.characters.first == "8"{
+            let newLength = text.count + string.count - range.length
+            if text.first == "8"{
                 return newLength <= 11
             }
             else{
@@ -72,9 +69,9 @@ class loginPage: UIViewController,UITextFieldDelegate{
     func NumberCheck() -> Int{
         number = numberTextField.text!
         if(number != ""){
-            if(number.characters.count == 12){
+            if(number.count == 12){
                 numberTextField.isUserInteractionEnabled = true
-                if(String(number.characters.prefix(3)) == "+77"){
+                if(String(number.prefix(3)) == "+77"){
                     return 1
                 }
                 else{
@@ -82,8 +79,8 @@ class loginPage: UIViewController,UITextFieldDelegate{
                     return 0
                 }
             }
-            else if(number.characters.count == 11){
-                if(String(number.characters.prefix(2)) == "87"){
+            else if(number.count == 11){
+                if(String(number.prefix(2)) == "87"){
                     return 1
                 }
                 else{
@@ -91,7 +88,7 @@ class loginPage: UIViewController,UITextFieldDelegate{
                     return 0
                 }
             }
-            if(number.characters.count > 12){
+            if(number.count > 12){
                 numberTextField.isUserInteractionEnabled = false
                 return 0
             }

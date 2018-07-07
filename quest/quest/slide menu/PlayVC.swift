@@ -1,9 +1,9 @@
 //
-//  PlayVC.swift
-//  AKSwiftSlideMenu
+//  UserModel.swift
+//  quest
 //
-//  Created by MAC-186 on 4/8/16.
-//  Copyright © 2016 Kode. All rights reserved.
+//  Created by Serik on 07.07.2018.
+//  Copyright © 2018 Serik. All rights reserved.
 //
 
 import UIKit

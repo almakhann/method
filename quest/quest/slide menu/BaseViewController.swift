@@ -1,9 +1,9 @@
 //
-//  BaseViewController.swift
-//  AKSwiftSlideMenu
+//  UserModel.swift
+//  quest
 //
-//  Created by Ashish on 21/09/15.
-//  Copyright (c) 2015 Kode. All rights reserved.
+//  Created by Serik on 07.07.2018.
+//  Copyright © 2018 Serik. All rights reserved.
 //
 
 import UIKit
