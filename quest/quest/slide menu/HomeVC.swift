@@ -10,12 +10,12 @@ import UIKit
 import GoogleMaps
 
 class HomeVC: BaseViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         addSlideMenuButton()
     }
 
+    
     
 
 

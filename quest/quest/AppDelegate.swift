@@ -8,18 +8,18 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyAvMve7QHVDzgcYgPWwvQ4OFkgH91LOdIA")
+        GMSServices.provideAPIKey("AIzaSyAvMve7QHVDzgcYgPWwvQ4OFkgH91LOdIA")
         
         window = UIWindow()
-        
         if(UserModel.sharedInstance.checkUserLoggedIn == true){
             let storyboard = UIStoryboard(name:"Main", bundle: nil)
             let menu = storyboard.instantiateViewController(withIdentifier: "slideMenu")
