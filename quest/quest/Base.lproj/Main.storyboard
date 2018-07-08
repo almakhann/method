@@ -317,6 +317,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41P-8v-DZ4">
+                                <rect key="frame" x="59" y="593" width="296" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Маршрут">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressRouteBtn:" destination="V04-Ub-h9J" eventType="touchUpInside" id="mS8-NR-pYG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="kkB-uy-mDr"/>
@@ -324,6 +336,7 @@
                     <navigationItem key="navigationItem" title="Main Page" id="ie7-n7-zq5"/>
                     <connections>
                         <outlet property="mapView" destination="BDF-oD-MVI" id="13l-Ch-yR4"/>
+                        <outlet property="routeBtn" destination="41P-8v-DZ4" id="NGg-tB-VfZ"/>
                         <segue destination="ghX-8m-gOj" kind="show" identifier="pushToPlay" id="re2-LQ-QGW">
                             <nil key="action"/>
                         </segue>
