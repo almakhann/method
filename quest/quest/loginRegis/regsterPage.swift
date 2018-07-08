@@ -67,9 +67,14 @@ class regsterPage: UIViewController {
                     print(responseJSON["status"]!)
                     let a = String(describing: responseJSON["status"]!)
                     if a  == "1"{
-                        let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let nextVC = loginStoryboard.instantiateViewController(withIdentifier: "loginPage") as UIViewController
-                        self.navigationController?.pushViewController(nextVC, animated: true)
+                        DispatchQueue.main.async {
+                            
+                            
+                            let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            let nextVC = loginStoryboard.instantiateViewController(withIdentifier: "loginPage") as UIViewController
+                            self.navigationController?.pushViewController(nextVC, animated: true)
+                            
+                        }
                     }
                 }
             }

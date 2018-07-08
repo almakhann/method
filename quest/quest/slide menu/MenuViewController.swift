@@ -59,8 +59,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         arrayMenuOptions.append(["title":"Лента", "icon":"HomeIcon"])
         arrayMenuOptions.append(["title":"Мои квесты", "icon":"PlayIcon"])
         arrayMenuOptions.append(["title":"Создать квесты", "icon":"PlayIcon"])
-        arrayMenuOptions.append(["title":"Профиль", "icon":"men"])
-        arrayMenuOptions.append(["title":"Выйти", "icon":"men"])
+        arrayMenuOptions.append(["title":"Профиль", "icon":"profile"])
+        arrayMenuOptions.append(["title":"Выйти", "icon":"logout"])
         tblMenuOptions.reloadData()
     }
     

@@ -32,7 +32,7 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserModel.sharedInstance.getDataFromUserDefault())
-        CheckLogin()
+        GetQuests()
         
         addSlideMenuButton()
         GetLocationOnMap()
@@ -185,7 +185,7 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
     }
     
     //Backend
-    func CheckLogin (){
+    func GetQuests (){
         let url = URL(string: "http://188.166.82.179/team36/requests/get_all_quests.php")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -200,7 +200,14 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
             }
             do {
                 if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
+                    print("!!!!!!!!!!!!!!!!",responseJSON)
                     print(responseJSON["status"]!)
+                    
+                    print("################",type(of: responseJSON))
+                    
+            //        for i in 0...(responseJSON.count){
+              //          print(responseJSON["i"]!["name"])
+                //    }
                 }
             }
             catch {

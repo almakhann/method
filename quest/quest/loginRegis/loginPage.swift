@@ -139,9 +139,11 @@ class loginPage: UIViewController,UITextFieldDelegate{
                     let a = String(describing: responseJSON["status"]!)
                     print(type(of: a))
                     if a  == "1"{
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let controller = storyboard.instantiateViewController(withIdentifier: "slideMenu")
-                        self.present(controller, animated: true, completion: nil)
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let controller = storyboard.instantiateViewController(withIdentifier: "slideMenu")
+                            self.present(controller, animated: true, completion: nil)
+                        
 
                         let id = responseJSON["id"]
                         let name = responseJSON["fullname"]
@@ -150,6 +152,7 @@ class loginPage: UIViewController,UITextFieldDelegate{
                         
                         self.dict = ["phone": phone!, "email": email!, "id": id!,"name": name!]
                         UserModel.sharedInstance.saveUserDict(dict: self.dict)
+                        }
                     }
                 }
             }
