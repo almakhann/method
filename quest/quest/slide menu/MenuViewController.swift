@@ -56,11 +56,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func updateArrayMenuOptions(){
-        arrayMenuOptions.append(["title":"Лента", "icon":"shape"])
-        arrayMenuOptions.append(["title":"Мои квесты", "icon":"PlayIcon"])
-        arrayMenuOptions.append(["title":"Создать квесты", "icon":"PlayIcon"])
+        arrayMenuOptions.append(["title":"Лента", "icon":"smenu"])
+        arrayMenuOptions.append(["title":"Мои квесты", "icon":"sunduk"])
+        arrayMenuOptions.append(["title":"Создать квесты", "icon":"menu"])
         arrayMenuOptions.append(["title":"Профиль", "icon":"profile"])
-        arrayMenuOptions.append(["title":"Выйти", "icon":"logout"])
+        arrayMenuOptions.append(["title":"Выйти", "icon":"exit red"])
         tblMenuOptions.reloadData()
     }
     

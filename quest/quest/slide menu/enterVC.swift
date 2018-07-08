@@ -17,6 +17,7 @@ class enterVC: UIViewController,CLLocationManagerDelegate, GMSMapViewDelegate  {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var descr: UILabel!
     
+    @IBOutlet var codeLbl: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         descr.sizeToFit()
@@ -44,7 +45,10 @@ class enterVC: UIViewController,CLLocationManagerDelegate, GMSMapViewDelegate  {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         nameLabel.resignFirstResponder()
         descr.resignFirstResponder()
+        codeLbl.resignFirstResponder()
     }
+    
+    
     
 
 }

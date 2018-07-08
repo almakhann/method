@@ -451,6 +451,7 @@
                         <viewLayoutGuide key="safeArea" id="YeI-cf-tNp"/>
                     </view>
                     <connections>
+                        <outlet property="codeLbl" destination="SQ4-UB-JPV" id="a8u-ih-k7I"/>
                         <outlet property="descr" destination="Rt8-1s-UWX" id="d7K-vh-XWV"/>
                         <outlet property="mapView" destination="5k5-DK-SZC" id="giA-tB-5Ts"/>
                         <outlet property="nameLabel" destination="0JT-y4-a5Z" id="zGb-yw-x7Z"/>
@@ -864,7 +865,7 @@
                                 <rect key="frame" x="0.0" y="79" width="414" height="657"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="127" id="z90-gk-14P" customClass="ordersCell" customModule="SmartWear" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="127" id="z90-gk-14P" customClass="ordersCell" customModule="quest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="33" width="414" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z90-gk-14P" id="JaX-iQ-OGa">
@@ -875,7 +876,7 @@
                                                     <rect key="frame" x="0.0" y="6" width="414" height="121"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="127" translatesAutoresizingMaskIntoConstraints="NO" id="V0V-2x-fh8" customClass="ordersCell" customModule="SmartWear" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="127" translatesAutoresizingMaskIntoConstraints="NO" id="V0V-2x-fh8" customClass="ordersCell" customModule="quest" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="-6" width="414" height="127"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V0V-2x-fh8" id="5D9-Zs-ylM">
