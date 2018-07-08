@@ -49,9 +49,18 @@ class CreateVC: BaseViewController ,CLLocationManagerDelegate, GMSMapViewDelegat
     
     
     @IBAction func pressBtn(_ sender: UIButton) {
-        let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextVC = loginStoryboard.instantiateViewController(withIdentifier: "shareVC") as UIViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        if UserModel.sharedInstance.latitud != 0 && UserModel.sharedInstance.latitud != 0{
+            let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextVC = loginStoryboard.instantiateViewController(withIdentifier: "shareVC") as UIViewController
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+        else{
+            let alert = UIAlertController(title: "Ошибка", message: "Выберите место", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     

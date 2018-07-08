@@ -30,6 +30,7 @@
 		72E2973A20F165B300C167FE /* shareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973920F165B300C167FE /* shareVC.swift */; };
 		72E2973C20F18DBD00C167FE /* enterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973B20F18DBD00C167FE /* enterVC.swift */; };
 		72E2973E20F1A37300C167FE /* profileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973D20F1A37300C167FE /* profileVC.swift */; };
+		72E2974020F1EFFB00C167FE /* listVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973F20F1EFFB00C167FE /* listVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		72E2973920F165B300C167FE /* shareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shareVC.swift; sourceTree = "<group>"; };
 		72E2973B20F18DBD00C167FE /* enterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterVC.swift; sourceTree = "<group>"; };
 		72E2973D20F1A37300C167FE /* profileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileVC.swift; sourceTree = "<group>"; };
+		72E2973F20F1EFFB00C167FE /* listVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listVC.swift; sourceTree = "<group>"; };
 		9C5C22D2B4143EC2A6C67C42 /* Pods-quest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quest/Pods-quest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +199,7 @@
 				72E2973920F165B300C167FE /* shareVC.swift */,
 				72E2973B20F18DBD00C167FE /* enterVC.swift */,
 				72E2973D20F1A37300C167FE /* profileVC.swift */,
+				72E2973F20F1EFFB00C167FE /* listVC.swift */,
 			);
 			path = "slide menu";
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72E2973A20F165B300C167FE /* shareVC.swift in Sources */,
+				72E2974020F1EFFB00C167FE /* listVC.swift in Sources */,
 				725892A720F0C7AD00E71961 /* ViewController.swift in Sources */,
 				725892FA20F0E4A400E71961 /* MenuViewController.swift in Sources */,
 				725892F820F0E4A400E71961 /* HomeVC.swift in Sources */,

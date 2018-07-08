@@ -14,10 +14,15 @@ class profileVC: BaseViewController {
     @IBOutlet var surnameLbl: UITextField!
     @IBOutlet var nameLabel: UITextField!
     
+    var data = [String: Any]()
     override func viewDidLoad() {
         super.viewDidLoad()
         addSlideMenuButton()
-
+        data = UserModel.sharedInstance.getDataFromUserDefault()
+        
+        phoneLbl.text = data["phone"] as? String
+        surnameLbl.text = (data["name"] as? String)
+        nameLabel.text = data["email"] as? String
         // Do any additional setup after loading the view.
     }
 

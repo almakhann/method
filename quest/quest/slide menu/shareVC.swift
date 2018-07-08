@@ -35,17 +35,6 @@ class shareVC: UIViewController,UITextViewDelegate {
     
     @IBAction func createBtn(_ sender: UIButton) {
         CheckLogin(name: nameLbl.text!, descr: descr.text!, lon: UserModel.sharedInstance.longitut, att: UserModel.sharedInstance.latitud)
-        
-//        let alert = UIAlertController(title: "", message: "Успешно создана", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-//            NSLog("The \"OK\" alert occured.")
-//        }))
-//        self.present(alert, animated: true, completion: nil)
-        
-        
-        createBtn.alpha = 0
-        shareBtn.alpha = 1
-        codeLabel.alpha = 1
     }
     
     
@@ -98,7 +87,27 @@ class shareVC: UIViewController,UITextViewDelegate {
             do {
                 if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
                     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",responseJSON)
-
+                    let a = String(describing: responseJSON["status"]!)
+                    print(type(of: a))
+                    if a  == "1"{
+                        let alert = UIAlertController(title: "", message: "Успешно создана", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                            NSLog("The \"OK\" alert occured.")
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                        
+                        
+                        self.createBtn.alpha = 0
+                        self.shareBtn.alpha = 1
+                        self.codeLabel.alpha = 1
+                    }
+                    else{
+                        let alert = UIAlertController(title: "Ошибка", message: "Повторите", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                            NSLog("The \"OK\" alert occured.")
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
             catch {
