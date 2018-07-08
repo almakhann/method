@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         
-        if(!UserModel.sharedInstance.checkUserLoggedIn()){
+        if(UserModel.sharedInstance.checkUserLoggedIn()){
             let storyboard = UIStoryboard(name:"Main", bundle: nil)
             let menu = storyboard.instantiateViewController(withIdentifier: "slideMenu")
             self.window?.rootViewController = menu

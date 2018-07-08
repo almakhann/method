@@ -22,29 +22,18 @@ class loginPage: UIViewController,UITextFieldDelegate{
         numberTextField.delegate = self
         result = 1
         
-        CheckLogin(number: "87071997222", password: "123")
+//        CheckLogin(number: "Serik", password: "asdasd")
     }
     
     
     
     @IBAction func okBtn(_ sender: UIButton) {
         if NumberCheck() == 1 && passTextField.text != ""{
-            //let result = CheckLogin(number: numberTextField.text!, password: passTextField.text!)
-            
-            if result == 1{
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = storyboard.instantiateViewController(withIdentifier: "slideMenu")
-                self.present(controller, animated: true, completion: nil)
-            }
-            else{
-                showErrorAlert(errorMessage: "Неправильно")
-            }
-            
+            CheckLogin(number: numberTextField.text!, password: passTextField.text!)
         }
         else{
             showErrorAlert(errorMessage: "Заполните поле")
         }
-        
     }
     
     
@@ -126,31 +115,48 @@ class loginPage: UIViewController,UITextFieldDelegate{
     }
     
     //##backend
-    func CheckLogin (number: String, password: String) {
-        let url = URL(string: "http://188.166.82.179/team36/request/login.php")!
-        var request = URLRequest(url: url)
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+    var dict = [String: Any]()
+    
+    func CheckLogin (number: String, password: String){
+        let url = URL(string: "http://188.166.82.179/team36/requests/login.php")
+        var request = URLRequest(url: url!)
         request.httpMethod = "POST"
-        let postString = "Login = \(number) & Password = \(password)"
-        request.httpBody = postString.data(using: .utf8)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+        let postString = "username=\(number)&password=\(password)"
+        print(postString)
+        request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
                 print("error=\(String(describing: error))")
                 return
             }
-            
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(String(describing: response))")
+            do {
+                if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
+                   
+                    
+                    print(responseJSON["status"]!)
+                    print(String(describing: responseJSON["status"]))
+                    let a = String(describing: responseJSON["status"]!)
+                    print(type(of: a))
+                    if a  == "1"{
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let controller = storyboard.instantiateViewController(withIdentifier: "slideMenu")
+                        self.present(controller, animated: true, completion: nil)
+
+                        let id = responseJSON["id"]
+                        let name = responseJSON["fullname"]
+                        let email = responseJSON["email"]
+                        let phone = responseJSON["username"]
+                        
+                        self.dict = ["phone": phone!, "email": email!, "id": id!,"name": name!]
+                        UserModel.sharedInstance.saveUserDict(dict: self.dict)
+                    }
+                }
             }
-            
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(String(describing: responseString))")
+            catch {
+                print("Error -> \(error)")
+            }
         }
         task.resume()
-        
     }
-
-    
-
 }

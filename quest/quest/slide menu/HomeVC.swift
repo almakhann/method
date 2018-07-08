@@ -31,6 +31,9 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UserModel.sharedInstance.getDataFromUserDefault())
+        CheckLogin()
+        
         addSlideMenuButton()
         GetLocationOnMap()
         
@@ -180,6 +183,33 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
         mapView.selectedMarker = nil
         return false
     }
+    
+    //Backend
+    func CheckLogin (){
+        let url = URL(string: "http://188.166.82.179/team36/requests/get_all_quests.php")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        let postString = ""
+        print(postString)
+        request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            do {
+                if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
+                    print(responseJSON["status"]!)
+                }
+            }
+            catch {
+                print("Error -> \(error)")
+            }
+        }
+        task.resume()
+    }
+    
 }
 
 class SessionManager {
