@@ -15,6 +15,12 @@ struct State {
     let name: String
     let long: CLLocationDegrees
     let lat: CLLocationDegrees
+    
+    init(name: String, long: CLLocationDegrees, lat: CLLocationDegrees) {
+        self.name = name
+        self.long = long
+        self.lat = lat
+    }
 }
 
 class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, UITextFieldDelegate {
@@ -28,14 +34,16 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
     var a = CLLocationCoordinate2D()
     var polylineArray = [GMSPolyline]()
     
+//    var states = [State]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserModel.sharedInstance.getDataFromUserDefault())
         GetQuests()
-        
-        addSlideMenuButton()
         GetLocationOnMap()
+        addSlideMenuButton()
+        
         
         for root: GMSPolyline in self.polylineArray
         {
@@ -133,11 +141,11 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
         self.locationManager.stopUpdatingLocation()
     }
     
+    
     let states = [
-        
-        State(name: "Alaska", long: 76.956707574427128, lat: 43.24299367019087),
-        State(name: "Alabama", long: 76.953467465937138, lat: 43.247557734630718),
-        // the other 51 states here...
+        State(name: "Qupiya", long: 76.956707574427128, lat: 43.24299367019087),
+        State(name: "Aslan", long: 76.953467465937138, lat: 43.247557734630718),
+        State(name: "Kobdisa", long: 77.953467465937138, lat: 42.247557734630718)
     ]
     
     func GetLocationOnMap(){
@@ -185,6 +193,7 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
     }
     
     //Backend
+  
     func GetQuests (){
         let url = URL(string: "http://188.166.82.179/team36/requests/get_all_quests.php")
         var request = URLRequest(url: url!)
@@ -203,11 +212,20 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
                     print("!!!!!!!!!!!!!!!!",responseJSON)
                     print(responseJSON["status"]!)
                     
-                    print("################",type(of: responseJSON))
+                    for quest in responseJSON{
+                        DispatchQueue.main.async {
+                            if quest.value["name"] != nil{
+//                                self.states.append(State.init(name: quest.value["name"]! as! String, long: quest.value["lon"]! as! CLLocationDegrees, lat: quest.value["lat"]! as! CLLocationDegrees))
+                                
+                                
+//                                self.GetLocationOnMap(name: quest.value["name"]! as! String, long: (quest.value["lon"]! as! NSNumber).doubleValue , lat:  (quest.value["lat"]! as! NSNumber).doubleValue)
+                                
+                            }
+                        }
+                    }
                     
-            //        for i in 0...(responseJSON.count){
-              //          print(responseJSON["i"]!["name"])
-                //    }
+                    print("################",type(of: responseJSON))
+                    print(responseJSON)
                 }
             }
             catch {

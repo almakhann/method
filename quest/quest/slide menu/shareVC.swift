@@ -86,20 +86,23 @@ class shareVC: UIViewController,UITextViewDelegate {
             }
             do {
                 if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
-                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",responseJSON)
+                    print("!!!!!!!!!##########!!!!!!!!!!!!!!!!!!!!!!",responseJSON)
                     let a = String(describing: responseJSON["status"]!)
-                    print(type(of: a))
+                    print(a)
+                    
                     if a  == "1"{
-                        let alert = UIAlertController(title: "", message: "Успешно создана", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                            NSLog("The \"OK\" alert occured.")
-                        }))
-                        self.present(alert, animated: true, completion: nil)
                         
+                            let alert = UIAlertController(title: "", message: "Успешно создана", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                                NSLog("The \"OK\" alert occured.")
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                            
+                            
+                            self.createBtn.alpha = 0
+                            self.shareBtn.alpha = 1
+                            self.codeLabel.alpha = 1
                         
-                        self.createBtn.alpha = 0
-                        self.shareBtn.alpha = 1
-                        self.codeLabel.alpha = 1
                     }
                     else{
                         let alert = UIAlertController(title: "Ошибка", message: "Повторите", preferredStyle: .alert)
