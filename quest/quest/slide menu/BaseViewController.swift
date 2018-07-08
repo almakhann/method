@@ -42,6 +42,19 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
             self.openViewControllerBasedOnIdentifier("CreateVC")
             
             break
+        case 3:
+            print("Profile\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("profileVC")
+            
+            break
+        case 4:
+            UserModel.sharedInstance.removeUserDefault()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "logreg")
+            self.present(controller, animated: true, completion: nil)
+            break
+            
         default:
             print("default\n", terminator: "")
         }

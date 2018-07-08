@@ -28,6 +28,8 @@
 		7258930020F12C2000E71961 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892FF20F12C1F00E71961 /* MainPage.swift */; };
 		72E2973820F1457E00C167FE /* CreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973720F1457E00C167FE /* CreateVC.swift */; };
 		72E2973A20F165B300C167FE /* shareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973920F165B300C167FE /* shareVC.swift */; };
+		72E2973C20F18DBD00C167FE /* enterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973B20F18DBD00C167FE /* enterVC.swift */; };
+		72E2973E20F1A37300C167FE /* profileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973D20F1A37300C167FE /* profileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		725892FF20F12C1F00E71961 /* MainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPage.swift; path = ../../../../../Documents/Swift/SmartWear/SmartWear/MainPage.swift; sourceTree = "<group>"; };
 		72E2973720F1457E00C167FE /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVC.swift; sourceTree = "<group>"; };
 		72E2973920F165B300C167FE /* shareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shareVC.swift; sourceTree = "<group>"; };
+		72E2973B20F18DBD00C167FE /* enterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterVC.swift; sourceTree = "<group>"; };
+		72E2973D20F1A37300C167FE /* profileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileVC.swift; sourceTree = "<group>"; };
 		9C5C22D2B4143EC2A6C67C42 /* Pods-quest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quest/Pods-quest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +195,8 @@
 				725892F320F0E4A400E71961 /* PlayVC.swift */,
 				72E2973720F1457E00C167FE /* CreateVC.swift */,
 				72E2973920F165B300C167FE /* shareVC.swift */,
+				72E2973B20F18DBD00C167FE /* enterVC.swift */,
+				72E2973D20F1A37300C167FE /* profileVC.swift */,
 			);
 			path = "slide menu";
 			sourceTree = "<group>";
@@ -396,12 +402,14 @@
 				725892A720F0C7AD00E71961 /* ViewController.swift in Sources */,
 				725892FA20F0E4A400E71961 /* MenuViewController.swift in Sources */,
 				725892F820F0E4A400E71961 /* HomeVC.swift in Sources */,
+				72E2973E20F1A37300C167FE /* profileVC.swift in Sources */,
 				725892AD20F0C7AD00E71961 /* quest.xcdatamodeld in Sources */,
 				725892E820F0D33F00E71961 /* ErrorAlertShow.swift in Sources */,
 				7258930020F12C2000E71961 /* MainPage.swift in Sources */,
 				725892E020F0D1BE00E71961 /* loginPage.swift in Sources */,
 				725892F920F0E4A400E71961 /* BaseViewController.swift in Sources */,
 				725892F720F0E4A400E71961 /* PlayVC.swift in Sources */,
+				72E2973C20F18DBD00C167FE /* enterVC.swift in Sources */,
 				725892A520F0C7AD00E71961 /* AppDelegate.swift in Sources */,
 				72E2973820F1457E00C167FE /* CreateVC.swift in Sources */,
 				725892DF20F0D1BE00E71961 /* regsterPage.swift in Sources */,

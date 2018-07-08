@@ -69,6 +69,19 @@ class CreateVC: BaseViewController ,CLLocationManagerDelegate, GMSMapViewDelegat
         location_y = longitude
     }
     
+    func createMarkerPosition(titleMarker: String,  latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Float) {
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
+        
+        self.mapView.camera = camera
+        let house = UIImage(named: "man")?.withRenderingMode(.alwaysTemplate)
+        let markerView = UIImageView(image: house)
+        let marker = GMSMarker()
+        marker.iconView = markerView
+        marker.position = CLLocationCoordinate2DMake(latitude, longitude)
+        marker.title = titleMarker
+        marker.map = mapView
+    }
+    
     var locationX: CLLocationDegrees = 0.0
     var locationY: CLLocationDegrees = 0.0
     //MARK: - Location Manager delegates
@@ -77,7 +90,7 @@ class CreateVC: BaseViewController ,CLLocationManagerDelegate, GMSMapViewDelegat
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        createMarker(titleMarker: "you position", latitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 17)
+        createMarkerPosition(titleMarker: "Ваше местоположение", latitude: (self.locationManager.location?.coordinate.latitude)!, longitude: (self.locationManager.location?.coordinate.longitude)!, zoom: 17)
         
         locationX = (self.locationManager.location?.coordinate.latitude)!
         locationY = (self.locationManager.location?.coordinate.longitude)!

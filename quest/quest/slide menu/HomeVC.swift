@@ -21,6 +21,7 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var routeBtn: UIButton!
     
+    @IBOutlet var infoBtn: UIButton!
     var locationManager = CLLocationManager()
     var locationX: CLLocationDegrees = 0.0
     var locationY: CLLocationDegrees = 0.0
@@ -42,6 +43,7 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
         }
         
         routeBtn.alpha = 0
+        infoBtn.alpha = 0
         locationManager.requestAlwaysAuthorization()
         //Your map initiation code
         self.mapView.delegate = self
@@ -57,7 +59,12 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startMonitoringSignificantLocationChanges()
     }
-
+    @IBAction func pressedInfoBtn(_ sender: UIButton) {
+        let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = loginStoryboard.instantiateViewController(withIdentifier: "enterVC") as UIViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     @IBAction func pressRouteBtn(_ sender: UIButton) {
         
         let sessionManager = SessionManager()
@@ -145,12 +152,14 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
     // MARK: - GMSMapViewDelegate
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         mapView.isMyLocationEnabled = true
+        
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
-        mapView.isMyLocationEnabled = true
         
+        mapView.isMyLocationEnabled = true
         if (gesture) {
+            infoBtn.alpha = 0
             mapView.selectedMarker = nil
         }
     }
@@ -158,13 +167,12 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         mapView.isMyLocationEnabled = true
         routeBtn.alpha = 1
+        infoBtn.alpha = 1
         a = marker.position
         return false
     }
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        routeBtn.alpha = 1
-
         print("COORDINATE \(coordinate)") // when you tapped coordinate
     }
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {

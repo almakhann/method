@@ -16,36 +16,38 @@ class loginPage: UIViewController,UITextFieldDelegate{
     @IBOutlet var passTextField: UITextField!
     var number = ""
     var id = Int16()
+    var result = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         numberTextField.delegate = self
+        result = 1
+        
+        CheckLogin(number: "87071997222", password: "123")
     }
+    
     
     
     @IBAction func okBtn(_ sender: UIButton) {
         if NumberCheck() == 1 && passTextField.text != ""{
-            print("Error")
-//            UserModel.sharedInstance.type = 1
-
-//            let result = CheckLogin(number: numberTextField.text!, password: passTextField.text!)
-            let result = 0
+            //let result = CheckLogin(number: numberTextField.text!, password: passTextField.text!)
+            
             if result == 1{
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = storyboard.instantiateViewController(withIdentifier: "tabbar")
+                let controller = storyboard.instantiateViewController(withIdentifier: "slideMenu")
                 self.present(controller, animated: true, completion: nil)
             }
             else{
                 showErrorAlert(errorMessage: "Неправильно")
             }
-
+            
         }
         else{
             showErrorAlert(errorMessage: "Заполните поле")
         }
         
     }
-
-
+    
+    
     @IBAction func backBtn(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated: true)
     }
@@ -72,17 +74,7 @@ class loginPage: UIViewController,UITextFieldDelegate{
     func NumberCheck() -> Int{
         number = numberTextField.text!
         if(number != ""){
-            if(number.count == 12){
-                numberTextField.isUserInteractionEnabled = true
-                if(String(number.prefix(3)) == "+77"){
-                    return 1
-                }
-                else{
-                    showErrorAlert(errorMessage: "Номер неправильно")
-                    return 0
-                }
-            }
-            else if(number.count == 11){
+            if(number.count == 11){
                 if(String(number.prefix(2)) == "87"){
                     return 1
                 }
@@ -91,7 +83,7 @@ class loginPage: UIViewController,UITextFieldDelegate{
                     return 0
                 }
             }
-            if(number.count > 12){
+            if(number.count > 11){
                 numberTextField.isUserInteractionEnabled = false
                 return 0
             }
@@ -134,35 +126,31 @@ class loginPage: UIViewController,UITextFieldDelegate{
     }
     
     //##backend
-//
-//    func getContext () -> NSManagedObjectContext {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        return appDelegate.persistentContainer.viewContext
-//    }
-//    func CheckLogin (number: String, password: String) -> Int {
-//        print(password)
-//        //create a fetch request, telling it about the entity
-//        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-//        do {
-//            //go get the results
-//            let searchResults = try getContext().fetch(fetchRequest)
-//            let data = searchResults as [User]
-//
-//            for i in data{
-//
-//                if number == i.number! && password == i.password!{
-//                    print(i.id)
-//                    id = i.id
-//                    UserModel.sharedInstance.id = i.id
-//                    return 1
-//                }
-//            }
-//        } catch {
-//            print("Error with request: \(error)")
-//        }
-//        return 0
-//    }
-//
+    func CheckLogin (number: String, password: String) {
+        let url = URL(string: "http://188.166.82.179/team36/request/login.php")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let postString = "Login = \(number) & Password = \(password)"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(String(describing: responseString))")
+        }
+        task.resume()
+        
+    }
+
     
 
 }

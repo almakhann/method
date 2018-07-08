@@ -15,10 +15,40 @@ import CoreLocation
 class UserModel {
     static let sharedInstance = UserModel()
     
-
-    var checkUserLoggedIn = true
-    
     var latitud:  CLLocationDegrees = 0.0
     var longitut:  CLLocationDegrees = 0.0
+    
+    func saveUserDict(dict: Dictionary<String, Any>) {
+        UserDefaults.standard.set(dict, forKey: "user")
+    }
+    
+    func removeUserDefault() {
+        UserDefaults.standard.removeObject(forKey: "user")
+    }
+    
+    var empty = [String: Any]()
+    func getDataFromUserDefault() -> [String: Any] {
+        let retrieveDict = UserDefaults.standard.dictionary(forKey:"user")
+        if(retrieveDict != nil){
+            return retrieveDict!
+        }
+        else{
+            return empty
+        }
+    }
+    
+    func checkUserLoggedIn() -> Bool {
+        if(getDataFromUserDefault().isEmpty){
+            return false
+        }
+        else{
+            return true
+        }
+    }
+    
+    
+    
+    
+    
 }
 
