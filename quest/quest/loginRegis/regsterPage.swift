@@ -27,7 +27,11 @@ class regsterPage: UIViewController {
             register(phone: numberTextField.text!, password: passTextField.text!, name: usernameTextField.text!, surname: surnameTextField.text!)
         }
         else{
-            print("Error")
+            let alert = UIAlertController(title: "Ошибка", message: "Заполните все поля", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -75,6 +79,13 @@ class regsterPage: UIViewController {
                             self.navigationController?.pushViewController(nextVC, animated: true)
                             
                         }
+                    }
+                    else{
+                        let alert = UIAlertController(title: "Ошибка", message: "Повторите попытку", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                            NSLog("The \"OK\" alert occured.")
+                        }))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
             }

@@ -16,17 +16,34 @@ class enterVC: UIViewController,CLLocationManagerDelegate, GMSMapViewDelegate  {
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var descr: UILabel!
-    
     @IBOutlet var codeLbl: UITextField!
+    @IBOutlet var sendBtn: UIButton!
+    var a = Int()
+    
+   
+    var my_protocol : PlayVC!
+    var name = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameLabel.text = name
+        
         descr.sizeToFit()
-        descr.text = "Если вы один раз отправили ссылку на репо то не надо отравлять обратно с каждым коммитом. Пишите простов эту группу кто сделал коммит"
-        createMarker(titleMarker: "Serik", latitude: 43.24299367019087, longitude: 76.956707574427128, zoom: 16)
+        print(UserModel.sharedInstance.list)
+        if UserModel.sharedInstance.list == 0{
+            sendBtn.alpha = 0
+            codeLbl.alpha = 0
+        }
+        else{
+            sendBtn.alpha = 1
+            codeLbl.alpha = 1
+        }
+        nameLabel.text = "Qupiya"
+        descr.text = "Возле магазина смалл, под лестницой"
+        createMarker(titleMarker: "Qupiya", latitude: 43.24299367019087, longitude: 76.956707574427128, zoom: 16)
+        
     }
     
-    
-
     @IBAction func sendBtn(_ sender: Any) {
         
     }
@@ -47,8 +64,4 @@ class enterVC: UIViewController,CLLocationManagerDelegate, GMSMapViewDelegate  {
         descr.resignFirstResponder()
         codeLbl.resignFirstResponder()
     }
-    
-    
-    
-
 }

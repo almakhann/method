@@ -17,8 +17,15 @@ class profileVC: BaseViewController {
     var data = [String: Any]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Профиль"
+        
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+        
         addSlideMenuButton()
         data = UserModel.sharedInstance.getDataFromUserDefault()
+        phoneLbl.isUserInteractionEnabled = false
+        surnameLbl.isUserInteractionEnabled = false
+        nameLabel.isUserInteractionEnabled = false
         
         phoneLbl.text = data["phone"] as? String
         surnameLbl.text = (data["name"] as? String)

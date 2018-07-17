@@ -43,7 +43,7 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
         GetQuests()
         GetLocationOnMap()
         addSlideMenuButton()
-        
+        UserModel.sharedInstance.list = 0
         
         for root: GMSPolyline in self.polylineArray
         {
@@ -71,6 +71,7 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
         locationManager.startMonitoringSignificantLocationChanges()
     }
     @IBAction func pressedInfoBtn(_ sender: UIButton) {
+        UserModel.sharedInstance.list = 1
         let loginStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = loginStoryboard.instantiateViewController(withIdentifier: "enterVC") as UIViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
@@ -154,6 +155,9 @@ class HomeVC: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate, 
             print("location: \(location)")
             let marker = GMSMarker()
             marker.position = location
+            let house = UIImage(named: "klad")?.withRenderingMode(.alwaysTemplate)
+            let markerView = UIImageView(image: house)
+            marker.iconView = markerView
             marker.snippet = state.name
             marker.map = mapView
         }

@@ -53,14 +53,18 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateArrayMenuOptions()
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+//        let imageView = UIImageView(image: UIImage(named: "background"))
+//        tblMenuOptions.backgroundView = imageView
+        
     }
     
     func updateArrayMenuOptions(){
-        arrayMenuOptions.append(["title":"Лента", "icon":"smenu"])
-        arrayMenuOptions.append(["title":"Мои квесты", "icon":"sunduk"])
-        arrayMenuOptions.append(["title":"Создать квесты", "icon":"menu"])
-        arrayMenuOptions.append(["title":"Профиль", "icon":"profile"])
-        arrayMenuOptions.append(["title":"Выйти", "icon":"exit red"])
+        arrayMenuOptions.append(["title":"Лента", "icon":"menas"])
+        arrayMenuOptions.append(["title":"Мои квесты", "icon":"quest"])
+        arrayMenuOptions.append(["title":"Создать квесты", "icon":"adding"])
+        arrayMenuOptions.append(["title":"Профиль", "icon":"profiles"])
+        arrayMenuOptions.append(["title":"Выйти", "icon":"logout"])
         tblMenuOptions.reloadData()
     }
     

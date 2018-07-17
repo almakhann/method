@@ -12,6 +12,7 @@ class MainPage: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     @IBAction func registerBtn(_ sender: UIButton) {

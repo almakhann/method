@@ -34,7 +34,16 @@ class shareVC: UIViewController,UITextViewDelegate {
     
     
     @IBAction func createBtn(_ sender: UIButton) {
-        CheckLogin(name: nameLbl.text!, descr: descr.text!, lon: UserModel.sharedInstance.longitut, att: UserModel.sharedInstance.latitud)
+        if nameLbl.text != "" && descr.text != ""{
+            CheckLogin(name: nameLbl.text!, descr: descr.text!, lon: UserModel.sharedInstance.longitut, att: UserModel.sharedInstance.latitud)
+        }
+        else{
+            let alert = UIAlertController(title: "Ошибка", message: "Заполните все поля", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
@@ -91,18 +100,15 @@ class shareVC: UIViewController,UITextViewDelegate {
                     print(a)
                     
                     if a  == "1"{
-                        
-                            let alert = UIAlertController(title: "", message: "Успешно создана", preferredStyle: .alert)
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Успешно создана", message: "Ваш код 654789", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                                NSLog("The \"OK\" alert occured.")
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let controller = storyboard.instantiateViewController(withIdentifier: "slideMenu")
+                                self.present(controller, animated: true, completion: nil)
                             }))
-                            self.present(alert, animated: true, completion: nil)
-                            
-                            
-                            self.createBtn.alpha = 0
-                            self.shareBtn.alpha = 1
-                            self.codeLabel.alpha = 1
-                        
+                            self.present(alert, animated: true, completion:nil)
+                        }
                     }
                     else{
                         let alert = UIAlertController(title: "Ошибка", message: "Повторите", preferredStyle: .alert)

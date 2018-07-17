@@ -27,6 +27,7 @@ class CreateVC: BaseViewController ,CLLocationManagerDelegate, GMSMapViewDelegat
         super.viewDidLoad()
         addSlideMenuButton()
         
+        self.navigationItem.title = "Создать Квест"
 
 
         

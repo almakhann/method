@@ -18,6 +18,9 @@ class UserModel {
     var latitud:  CLLocationDegrees = 0.0
     var longitut:  CLLocationDegrees = 0.0
     
+    
+    var list = Int()
+    
     func saveUserDict(dict: Dictionary<String, Any>) {
         UserDefaults.standard.set(dict, forKey: "user")
     }

@@ -25,7 +25,8 @@
 		725892F920F0E4A400E71961 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892F520F0E4A400E71961 /* BaseViewController.swift */; };
 		725892FA20F0E4A400E71961 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892F620F0E4A400E71961 /* MenuViewController.swift */; };
 		725892FC20F0E78B00E71961 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892FB20F0E78B00E71961 /* UserModel.swift */; };
-		7258930020F12C2000E71961 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725892FF20F12C1F00E71961 /* MainPage.swift */; };
+		72B73B9320FCAAF1005245D8 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B73B9220FCAAF1005245D8 /* MainPage.swift */; };
+		72B73B9520FCB87B005245D8 /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B73B9420FCB87B005245D8 /* cell.swift */; };
 		72E2973820F1457E00C167FE /* CreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973720F1457E00C167FE /* CreateVC.swift */; };
 		72E2973A20F165B300C167FE /* shareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973920F165B300C167FE /* shareVC.swift */; };
 		72E2973C20F18DBD00C167FE /* enterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2973B20F18DBD00C167FE /* enterVC.swift */; };
@@ -76,7 +77,8 @@
 		725892F520F0E4A400E71961 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		725892F620F0E4A400E71961 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		725892FB20F0E78B00E71961 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		725892FF20F12C1F00E71961 /* MainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPage.swift; path = ../../../../../Documents/Swift/SmartWear/SmartWear/MainPage.swift; sourceTree = "<group>"; };
+		72B73B9220FCAAF1005245D8 /* MainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPage.swift; path = quest/SmartWear/MainPage.swift; sourceTree = SOURCE_ROOT; };
+		72B73B9420FCB87B005245D8 /* cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
 		72E2973720F1457E00C167FE /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVC.swift; sourceTree = "<group>"; };
 		72E2973920F165B300C167FE /* shareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shareVC.swift; sourceTree = "<group>"; };
 		72E2973B20F18DBD00C167FE /* enterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enterVC.swift; sourceTree = "<group>"; };
@@ -172,7 +174,7 @@
 		725892D620F0D19300E71961 /* loginRegis */ = {
 			isa = PBXGroup;
 			children = (
-				725892FF20F12C1F00E71961 /* MainPage.swift */,
+				72B73B9220FCAAF1005245D8 /* MainPage.swift */,
 				725892D920F0D1BD00E71961 /* loginPage.swift */,
 				725892D820F0D1BD00E71961 /* regsterPage.swift */,
 			);
@@ -200,6 +202,7 @@
 				72E2973B20F18DBD00C167FE /* enterVC.swift */,
 				72E2973D20F1A37300C167FE /* profileVC.swift */,
 				72E2973F20F1EFFB00C167FE /* listVC.swift */,
+				72B73B9420FCB87B005245D8 /* cell.swift */,
 			);
 			path = "slide menu";
 			sourceTree = "<group>";
@@ -408,10 +411,11 @@
 				725892F820F0E4A400E71961 /* HomeVC.swift in Sources */,
 				72E2973E20F1A37300C167FE /* profileVC.swift in Sources */,
 				725892AD20F0C7AD00E71961 /* quest.xcdatamodeld in Sources */,
+				72B73B9520FCB87B005245D8 /* cell.swift in Sources */,
 				725892E820F0D33F00E71961 /* ErrorAlertShow.swift in Sources */,
-				7258930020F12C2000E71961 /* MainPage.swift in Sources */,
 				725892E020F0D1BE00E71961 /* loginPage.swift in Sources */,
 				725892F920F0E4A400E71961 /* BaseViewController.swift in Sources */,
+				72B73B9320FCAAF1005245D8 /* MainPage.swift in Sources */,
 				725892F720F0E4A400E71961 /* PlayVC.swift in Sources */,
 				72E2973C20F18DBD00C167FE /* enterVC.swift in Sources */,
 				725892A520F0C7AD00E71961 /* AppDelegate.swift in Sources */,
@@ -587,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7SSC37T79W;
 				INFOPLIST_FILE = quest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-50107031-stu.sdu.edu.kz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -604,7 +608,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7SSC37T79W;
 				INFOPLIST_FILE = quest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-50107031-stu.sdu.edu.kz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
